@@ -1,9 +1,10 @@
+from datetime import datetime
 from selenium import webdriver
 from pages.login_page import LoginPage
 from pages.logged_page import LoggedPage
 
 import logging
-from datetime import datetime
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -11,6 +12,8 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+os.makedirs('screenshots', exist_ok=True)
 
 USERNAME = "tomsmith"
 PASSWORD = "SuperSecretPassword!"

@@ -1,8 +1,9 @@
+from datetime import datetime
 from selenium import webdriver
 from pages.dropdown_page import DropdownPage
 
 import logging
-from datetime import datetime
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -11,6 +12,8 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 driver = webdriver.Chrome()
+
+os.makedirs('screenshots', exist_ok=True)
 
 def test_dropdown_list()-> None:    
     logger.info("Test Dropdown List")
