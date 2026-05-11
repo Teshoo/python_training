@@ -21,15 +21,16 @@ def test_dropdown_list()-> None:
         
         logger.info("Navigating to Dropdown List page...")
         page.open(page.URL)
- 
         page.wait_dropdown_list_to_be_visible()
         assert page.get_dropdown_list() is not None, f"Dropdown list should be visible"
         logger.info("ASSERT: Dropdown List page displayed")
         
+        logger.info("Selecting option 1 in dropdown list...")
         page.select_an_option("1")
         assert page.get_selected_value() == "1", f"Selected option should be 1"
         logger.info("ASSERT: Option 1 selected")
         
+        logger.info("Selecting option 2 in dropdown list...")
         page.select_an_option("2")
         assert page.get_selected_value() == "2", f"Selected option should be 2"
         logger.info("ASSERT: Option 2 selected")
