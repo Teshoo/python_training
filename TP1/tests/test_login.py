@@ -3,7 +3,7 @@ from pages.login_page import LoginPage
 from pages.logged_page import LoggedPage
 
 import logging
-import datetime
+from datetime import datetime
 
 logging.basicConfig(
     level=logging.INFO,

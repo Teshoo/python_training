@@ -2,7 +2,7 @@ from selenium import webdriver
 from pages.dropdown_page import DropdownPage
 
 import logging
-import datetime
+from datetime import datetime
 
 logging.basicConfig(
     level=logging.INFO,
