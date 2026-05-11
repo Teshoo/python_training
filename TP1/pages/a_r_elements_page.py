@@ -1,7 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.select import Select
 
 class ARElementsPage(BasePage):
     URL: str = "https://the-internet.herokuapp.com/add_remove_elements/"
@@ -32,4 +31,3 @@ class ARElementsPage(BasePage):
 
     def get_delete_element_buttons(self):
         return self.driver.find_elements(*self.DELETE_ELEMENT_BUTTON)
-    
