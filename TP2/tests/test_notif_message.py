@@ -25,19 +25,19 @@ def test_notification_message()-> None:
         logger.info("Navigating to Notification Message page...")
         page.open(page.URL)
         
-        assert page.URL in driver.current_url
+        assert page.URL in driver.current_url, f"URL should be {page.URL}"
         logger.info("ASSERT: Notification Message page loaded")
         
         logger.info("Clicking on Click Here button...")
         page.click_on_click_here_button()
         page.wait_notification_to_be_visible()
-        assert page.get_notification_text() is not None
+        assert page.get_notification_text() is not None, f"Notification message should be displayed"
         logger.info("ASSERT: Notification message is displayed")
         
         logger.info("Clicking on Click Here button 10 times...")
         for i in range(0,10):
             page.click_on_click_here_button()
-            assert page.is_a_correct_notification_message()
+            assert page.is_a_correct_notification_message(), f"Notification message should be correct; got {page.is_a_correct_notification_message()}"
         logger.info("ASSERT: Notification messages are correct")
         
     except Exception as e:

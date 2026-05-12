@@ -25,7 +25,7 @@ def test_dynamic_controls()-> None:
         logger.info("Navigating to Dynamic Controls page...")
         page.open(page.URL)
         
-        assert page.URL in driver.current_url
+        assert page.URL in driver.current_url, f"URL should be {page.URL}"
         logger.info("ASSERT: Dynamic Controls page loaded")
         assert page.get_checkbox() is not None, f"The checkbox should be visible"
         logger.info("ASSERT: The checkbox is visible")
@@ -33,13 +33,13 @@ def test_dynamic_controls()-> None:
         logger.info("Clicking on Remove button...")
         page.click_on_swap_button()
         page.wait_checkbox_not_to_be_visible()
-        assert page.get_message().text == "It's gone!"
+        assert page.get_message().text == "It's gone!", f"Message should be 'It's gone!'; got {page.get_message().text}"
         logger.info("ASSERT: The checkbox is not visible")
         
         logger.info("Clicking on Add button...")
         page.click_on_swap_button()
         page.wait_checkbox_to_be_visible()
-        assert page.get_message().text == "It's back!"
+        assert page.get_message().text == "It's back!", f"Message should be 'It's back!'; got {page.get_message().text}"
         logger.info("ASSERT: The checkbox is visible")
         
         logger.info("Testing input text...")
@@ -54,7 +54,7 @@ def test_dynamic_controls()-> None:
         
         logger.info("Adding text in input text...")
         page.add_text_in_input_text("testing")
-        assert page.get_input_text().get_attribute("value") == "testing"
+        assert page.get_input_text().get_attribute("value") == "testing", f"The text inside the input text should be 'testing'; got {page.get_input_text().get_attribute("value")}"
         logger.info("ASSERT: The text is inserted in the input text")
         
     except Exception as e:

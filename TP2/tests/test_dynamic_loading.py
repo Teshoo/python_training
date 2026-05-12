@@ -25,7 +25,7 @@ def test_dynamic_loading()-> None:
         logger.info("Navigating to Dynamic Loading page...")
         page.open(page.URL)
         
-        assert page.URL in driver.current_url
+        assert page.URL in driver.current_url, f"URL should be {page.URL}"
         logger.info("ASSERT: Dynamic Loading page loaded")
         
         logger.info("Clicking on Example 2 link...")
@@ -38,7 +38,7 @@ def test_dynamic_loading()-> None:
         logger.info("Clicking on the Sart button...")
         page.click_on_start_button()
         page.wait_hello_world_to_be_visible()
-        assert page.get_hello_world_title().text == "Hello World!"
+        assert page.get_hello_world_title().text == "Hello World!", f"Message should be 'Hello World!'; got {page.get_hello_world_title().text}"
         logger.info("ASSERT: The text Hello World is displayed")
         
     except Exception as e:
