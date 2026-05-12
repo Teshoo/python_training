@@ -20,7 +20,7 @@ class DynamicLoading(BasePage):
         self.driver.find_element(*self.EXAMPLE_2_LINK).click()
     
     def click_on_start_button(self):
-        return self.driver.find_element(*self.START_BUTTON).click()
+        self.get_start_button().click()
     
     def wait_hello_world_to_be_visible(self):
         try:
